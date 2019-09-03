@@ -4,7 +4,7 @@ CONSOLE_COLUMNS ?= `echo $$(tput cols)`
 CONSOLE_LINES ?= `echo $$(tput lines)`
 
 docker-build: ## Build a new image locally.
-	docker build -t mayanedms/mayanedms:$(IMAGE_VERSION) -f docker/Dockerfile .
+	docker.exe build -t mayanedms/mayanedms:$(IMAGE_VERSION) -f docker/Dockerfile .
 
 docker-build-with-proxy: ## Build a new image locally using an APT proxy as APT_PROXY.
 	docker build -t mayanedms/mayanedms:$(IMAGE_VERSION) -f docker/Dockerfile --build-arg APT_PROXY=$(APT_PROXY) .
