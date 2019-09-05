@@ -1,0 +1,28 @@
+version: "3"
+services:
+  mayan-edms-postgres:
+    image: "postgres:9.6"
+    ports:
+      - "5432:5432"
+    restart: "always"
+    volumes:
+      - "/docker-volumes/mayan-edms/postgres:/var/lib/postgresql/data"
+    environment:
+      POSTGRES_USER: "mayan"
+      POSTGRES_DB: "mayan"
+      POSTGRES_PASSWORD: "mayanuderpass"
+  
+  mayan-edms:
+    image: "mayanedms/mayanedms:3.2.7"
+    ports:
+      - "80:8000"
+    restart: "always"
+    volumes:
+      - "/docker-volumes/mayan-edms/media:/var/lib/mayan"
+    environment:
+      MAYAN_DATABASE_ENGINE: "django.db.backends.postgresql"
+      MAYAN_DATABASE_HOST:  "mayan-edms-postgres"
+      MAYAN_DATABASE_NAME: "mayan"
+      MAYAN_DATABASE_PASSWORD: "mayanuserpass"
+      MAYAN_DATABASE_USER: "mayan"
+      MAYAN_DATABASE_CONN_MAX_AGE: "0"
