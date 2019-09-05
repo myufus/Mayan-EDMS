@@ -209,6 +209,10 @@ a i {
     padding: 10px;
 }
 
+.panel-footer {
+    color: #094338;
+}
+
 .list-extra-column-label {
     font-weight: bold;
 }
@@ -371,6 +375,9 @@ a i {
     }
 }
 
+.btn-default {
+  background-color: #5d6e6f;
+}
 
 /*Bootstrap button outline override*/
 .btn-outline {
